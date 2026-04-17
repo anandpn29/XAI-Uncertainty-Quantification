@@ -1,3 +1,27 @@
+"""
+Version: v1
+
+Description:
+This script performs image classification and explainability analysis using XAI techniques.
+
+Includes:
+- Pretrained ResNet18 model for image classification
+- Confidence-based uncertainty (1 - probability)
+- Top-3 prediction analysis
+- Noise-based stability (robustness check)
+- LIME (Local Interpretable Model-Agnostic Explanations) for visual explanation
+
+Outputs:
+- Predicted class and confidence
+- Uncertainty score
+- Prediction consistency under noise
+- LIME explanation image
+
+GitHub & Integration: Anand Narayan
+Coding and Implementation:
+- Ansh Batra
+- Kushal Gupta
+"""
 import torch
 from PIL import Image
 from torchvision import models, transforms
@@ -155,5 +179,5 @@ plt.subplot(1,2,2)
 plt.imshow(lime_image_output)
 plt.title("LIME Explanation")
 plt.axis('off')
-plt.imsave("lime_output.png", lime_image_output)
+plt.imsave("results/lime_output.png", lime_image_output)
 plt.show()
