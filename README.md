@@ -65,8 +65,14 @@ python src/lime_uncertainty_v1.py
 - LIME explanations can vary with small changes in input
 - Uncertainty measure used here is simple and not fully reliable
 - Results depend on pretrained model (ResNet18)
+## Research Gaps
 
-
+- No universal metric  
+- System vs model gap  
+- Limited domain testing  
+- Automation gap  
+- Regulatory alignment gap  
+- Cross-country study gap
 
 ## Some observations
 We noticed that even when prediction confidence is high, explanation can change with small noise. This shows that explanations are not always stable.
