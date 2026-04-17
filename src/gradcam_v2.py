@@ -1,3 +1,33 @@
+"""
+Version: v2
+
+Description:
+This script improves upon the initial LIME-based explainability approach by introducing Grad-CAM for faster and more stable visual explanations in CNN-based image classification.
+
+It focuses on improving computational efficiency and better spatial interpretability of model decisions compared to LIME.
+
+Includes:
+- Pretrained ResNet50 model for image classification
+- Softmax-based confidence scoring
+- Monte Carlo Dropout-based uncertainty estimation
+- Grad-CAM (Gradient-weighted Class Activation Mapping) for visual explanations
+- Top-3 prediction analysis
+
+Outputs:
+- Top-3 predicted classes with confidence scores
+- Prediction confidence and uncertainty score
+- Grad-CAM heatmap visualization
+- Saved heatmap image for analysis
+
+Evolution Note:
+- v1: LIME-based explanations (slow and computationally expensive)
+- v2: Grad-CAM introduced for efficient and stable explanations
+
+GitHub & Integration: Anand Narayan
+Coding and Implementation:
+- Ansh Batra
+- Kushal Gupta
+"""
 import torch
 import torch.nn.functional as F
 from torchvision import models, transforms
