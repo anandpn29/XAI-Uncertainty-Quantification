@@ -2,43 +2,43 @@
 
 Group implementation project for AI111 course
 
-The aim of this project is to understand how explainable AI methods work using Grad-CAM and how reliable model predictions are under uncertainty.
+The aim of this project is to understand how explainable AI methods work using Grad-CAM and how reliable model predictions are under uncertainty using statistical and information-theoretic measures.
 
-This final version enhances the previous Grad-CAM implementation by adding entropy-based uncertainty estimation and activation distribution analysis (histogram) to better understand model confidence and interpretability.
+This final version introduces a fully enhanced explainability pipeline combining Grad-CAM, entropy-based uncertainty, and statistical significance testing using p-values for logits.
 
-We used a pretrained ResNet50 model for image classification and applied Grad-CAM to visualize which regions of the image influence the model’s prediction. Along with this, we estimated uncertainty using Monte Carlo Dropout and entropy to analyze prediction stability.
+We used a pretrained ResNet50 model for image classification and applied Grad-CAM to visualize important image regions influencing predictions. Additionally, we introduced entropy and p-value analysis to quantify uncertainty and statistical significance of predictions.
 
 ---
 
 ## What we did
 
 - Used ResNet50 for image classification  
-- Extracted top-3 predicted classes  
-- Computed prediction confidence using softmax  
-- Estimated uncertainty using Monte Carlo Dropout sampling  
-- Calculated entropy of prediction distribution  
+- Extracted top-5 predicted classes  
+- Computed softmax-based confidence scores  
+- Performed z-score based p-value significance testing  
+- Estimated uncertainty using entropy of probability distribution  
 - Generated Grad-CAM heatmaps for visual explanations  
-- Plotted activation intensity histogram for interpretability  
-- Saved final outputs as images for analysis  
+- Plotted activation distribution histogram  
+- Combined all outputs into a unified visualization dashboard  
 
 ---
 
 ## Outputs
 
-- Predicted class and confidence  
-- Top-3 predictions  
-- Uncertainty score (%)  
-- Entropy value of prediction distribution  
+- Top-5 predicted classes with confidence scores  
+- P-value significance for predictions  
+- Entropy-based uncertainty score  
 - Grad-CAM heatmap visualization (saved in results folder)  
-- Activation histogram plot (saved in results folder)  
+- Combined analysis plot (saved in results folder)  
+- Final explanation report printed in terminal  
 
 ---
 
 ## Project Structure
 
-- src → contains main code (Grad-CAM final implementation)  
+- src → contains final implementation code  
 - images → input test images  
-- results → output heatmaps and graphs  
+- results → output heatmaps and analysis plots  
 - imagenet_classes.txt → class labels  
 
 ---
@@ -47,11 +47,11 @@ We used a pretrained ResNet50 model for image classification and applied Grad-CA
 
 Install required libraries:
 
-pip install torch torchvision numpy matplotlib pillow opencv-python
+pip install torch torchvision numpy matplotlib pillow opencv-python scipy
 
 Run:
 
-python src/gradcam_v3.py
+python src/gradcam_final.py
 
 Enter image name (from images folder) when prompted.
 
@@ -69,38 +69,39 @@ Enter image name (from images folder) when prompted.
 
 ## My Contribution (GitHub Role)
 
-- Managed full repository evolution across all versions (LIME → Grad-CAM → Final enhanced model)  
-- Integrated final Grad-CAM + entropy + histogram pipeline  
-- Ensured reproducible execution and clean project structure  
-- Organized dataset, codebase, and output results  
-- Maintained version control and submission-ready GitHub repository  
+- Managed full project evolution across all versions (LIME → Grad-CAM → final statistical model)  
+- Integrated final pipeline into a clean and reproducible GitHub structure  
+- Ensured proper version control and structured repository organization  
+- Maintained documentation and submission-ready formatting  
+- Coordinated integration of all coding contributions  
 
 ---
 
 ## Mathematical Concepts Used
 
-- Probability (softmax output)  
-- Monte Carlo Dropout for uncertainty estimation  
-- Entropy for measuring prediction uncertainty  
+- Softmax probability estimation  
+- Z-score based statistical testing  
+- P-value significance testing  
+- Entropy for uncertainty measurement  
 - Gradient-based activation mapping (Grad-CAM)  
-- Statistical distribution analysis (histogram of activations)  
+- Histogram-based distribution analysis  
 
 ---
 
 ## Limitations
 
-- Grad-CAM resolution remains coarse and approximate  
-- Monte Carlo Dropout provides only an approximate uncertainty estimate  
-- Entropy depends on model probability calibration  
+- P-values are approximate and based on logit assumptions  
+- Grad-CAM resolution is coarse  
+- Entropy depends on model calibration  
+- Monte Carlo effects are not fully Bayesian  
 - Results depend on pretrained ResNet50 model  
-- Explanations are not fully deterministic  
 
 ---
 
 ## Observations
 
-We observed that Grad-CAM provides strong spatial interpretability, while entropy and Monte Carlo Dropout help quantify uncertainty more robustly.
+We observed that combining statistical significance (p-values) with entropy-based uncertainty provides a more robust interpretation of model confidence.
 
-The histogram of activations further shows how concentrated or distributed the model’s attention is on image regions.
+Grad-CAM highlights spatial reasoning, while histogram analysis shows how concentrated the model’s attention is.
 
-This final version improves both interpretability and uncertainty estimation compared to previous versions, showing a clear evolution from LIME → Grad-CAM → enhanced Grad-CAM pipeline.
+This final version provides a comprehensive explainability pipeline combining visual, statistical, and probabilistic interpretability techniques.
