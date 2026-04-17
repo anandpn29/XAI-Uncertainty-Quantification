@@ -54,7 +54,22 @@ python src/lime_uncertainty_v1.py
 - Harshit Mishra(Presentation and report)
 - Pushkar Aggarwal(Literature review)
 
+## Mathematical Concepts Used
+
+- Probability (softmax output)
+- Uncertainty estimation (1 - confidence)
+- Perturbation analysis (noise stability)
+
+## Limitations
+
+- LIME explanations can vary with small changes in input
+- Uncertainty measure used here is simple and not fully reliable
+- Results depend on pretrained model (ResNet18)
+
+
+
 ## Some observations
 We noticed that even when prediction confidence is high, explanation can change with small noise. This shows that explanations are not always stable.
 
 Also, it is difficult to clearly define how much uncertainty is acceptable in explanations.
+
