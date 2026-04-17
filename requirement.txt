@@ -3,5 +3,4 @@ torchvision
 numpy
 matplotlib
 pillow
-lime
-scikit-image
+opencv-python
