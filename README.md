@@ -49,6 +49,14 @@ Install required libraries:
 
 pip install torch torchvision numpy matplotlib pillow opencv-python scipy
 
+'or'
+
+Clone the repository:
+git clone <repo-link>
+
+Install dependencies:
+pip install -r requirements.txt
+
 Run:
 
 python src/gradcam_final.py
