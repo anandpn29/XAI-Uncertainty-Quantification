@@ -69,7 +69,7 @@ top5  = probs.argsort()[-5:][::-1]
 
 # ── Per-prediction p-values (z-test vs background logits) ─
 z_scores = (logits - logits.mean()) / (logits.std() + 1e-8)
-p_values = stats.norm.sf(z_scores)   # one-tailed, right tail
+p_values = stats.norm.sf(z_scores)   
 
 # ── Print results ─────────────────────────────────────────
 print(f"\n{'Rank':<4} {'Label':<35} {'Conf':>7} {'P-value':>9} {'Sig':>5}")
